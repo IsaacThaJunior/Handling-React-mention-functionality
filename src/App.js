@@ -2,10 +2,29 @@ import { useState, useCallback } from 'react';
 import { Mention, MentionsInput } from 'react-mentions';
 import mentionStyle from './mentionStyle';
 import mentionsInputStyle from './mentionsInputStyle';
+import merge from 'lodash/merge';
+import CustomForm from './CustomForm';
 
 function App() {
 	const [value, setValue] = useState('');
+	const [emojiValue, setEmojiValue] = useState([]);
+
 	const emailRegex = /(([^\s@]+@[^\s@]+\.[^\s@]+))$/;
+	const notMatchingRegex = /($a)/;
+
+	let customStyle = merge({}, mentionsInputStyle, {
+		input: {
+			overflow: 'auto',
+			height: 80,
+			width: 500,
+		},
+		highlighter: {
+			boxSizing: 'border-box',
+			overflow: 'hidden',
+			height: 80,
+			width: 500,
+		},
+	});
 
 	const users = [
 		{
@@ -41,7 +60,7 @@ function App() {
 		<div className="App">
 			{/* Working with Default mentions */}
 
-			<h2>Lets get started</h2>
+			{/* <h2>Lets get started</h2>
 
 			<MentionsInput
 				style={mentionsInputStyle}
@@ -109,7 +128,7 @@ function App() {
 			<br />
 
 			{/* Working with external data */}
-			<h2>Fetching response from external sources</h2>
+			{/*	<h2>Fetching response from external sources</h2>
 
 			<MentionsInput
 				value={value}
@@ -132,7 +151,9 @@ function App() {
 			<br />
 			<br />
 			<br />
-			<br />
+			<br /> */}
+
+			<CustomForm />
 		</div>
 	);
 }

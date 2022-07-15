@@ -3,7 +3,7 @@ export default {
   control: {
     backgroundColor: "#fff",
     fontSize: 16,
-    // fontWeight: 'normal',
+    fontWeight: 'normal',
   },
 
   "&multiLine": {
@@ -25,8 +25,8 @@ export default {
       borderRadius: 0,
       backgroundColor: "white",
       color: "black",
-      // padding: 15,
-      // margin: 100,
+      padding: 15,
+      margin: 100,
       width: "50%",
       overflow: "auto",
       height: 70,
